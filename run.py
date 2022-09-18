@@ -1,24 +1,16 @@
-from rich.console import Console
-from random import choice
 
 
-welcome_message = "Welcome to Wizard Wordle Game!"
-instructions = "You can start guessing with a five letter word."
-allowed_guesses = 6
+# import random
 
-def correct_place(letter):
-    return f'[black on green]{letter}[/]'
+# def game():
+#     print("Welcome to the Harry Potter Wordle Game!")
+#     print("Start typing a five letter word related to Harry Potter, then click Enter.")
 
-def correct_letter(letter):
-    return f'[black on yellow]{letter}[/]'
+# def get_random_word():
+#     words = open(words.txt)words_list.get_all_values()
+#     random_word = (random.choice(words))
+#     return random.word
 
-def incorrect_letter(letter):
-    return f'[black on white]{letter}[/]'
-
-if __name__ == '__main__':
-    console = Console()
-    chosen_word = choice(word_list)
-    console.print(welcome_message)
-    console.print(instructions)
-
-
+# game()
+# word = get_random_word()
+# print(word)
