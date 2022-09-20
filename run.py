@@ -36,7 +36,7 @@ word = get_random_word()
 for attempt in range(1, 7):
     guess = input().lower()
 
-    for i in range(min(len(guess), 5)):
+    for i in range(min(len(guess), 10)):
         if guess[i] == word[i]:
             print(colored(guess[i], 'green'), end="")
         elif guess[i] in word:
