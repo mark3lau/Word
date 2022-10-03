@@ -18,7 +18,7 @@ SHEET = GSPREAD_CLIENT.open('harry_potter_wordle')
 
 def game():
     print("Welcome to the Harry Potter Wordle Game!\n")
-    print("Start typing a five letter word related to Harry Potter, then click Enter.\n")
+    print("You have 6 attempts. Start typing a five letter word related to Harry Potter, then click Enter.\n")
 
 def get_random_word():
     """
@@ -29,21 +29,53 @@ def get_random_word():
     return random.choice(words)
    
 
-game()
-word = get_random_word()
-
-
-for attempt in range(1, 7):
-    guess = input().lower()
-
-    for i in range(min(len(guess), 10)):
-        if guess[i] == word[i]:
-            print(colored(guess[i], 'green'), end="")
-        elif guess[i] in word:
-            print(colored(guess[i], 'yellow'), end="")
+def check_guess(answer, guess):
+    position = 0
+    for letter in guess:
+        if letter == answer[position]:
+            print(colored(guess[letter]), 'green')
+        elif letter in answer:
+            print(colored(guess[letter]), 'yellow')
         else:
-            print(guess[i], end="")
+            print(guess[letter])
+        position += 1
+    print(guess)
+    
 
-    if guess == word:
-        print(f"Congrats! You got the wordle in {attempt}")
-        break
+game()
+answer = get_random_word()
+print(answer)
+
+attempt = 0
+guessed_correctly = False
+
+while attempt < 6 and not guessed_correctly:
+    guess = input().lower()
+    print(f"You guessed {guess}")
+    attempt += 1
+
+    guessed_correctly = check_guess(answer, guess)
+
+if guessed_correctly:
+    print(f"Congrats! You got the wordle in {attempt} guesses!")
+else:
+    print(f"You have used up all your guesses...the correct word is {answer}")
+
+
+# for attempt in range(7):
+#     guess = input().lower()
+
+#     for i in range(4):
+#         if guess[i] == answer[i]:
+#             print(colored(guess[i], 'green'), end="")
+#         # elif guess[i] in word:
+#         #     print(colored(guess[i], 'yellow'), end="")
+#         # else:
+#         #     print(guess[i], end="")
+
+#     if guess == computer:
+#         print(f"Congrats! You got the wordle in {attempt}")
+#         break
+
+
+# for i in range(min(len(guess), 4)):
