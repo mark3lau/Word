@@ -59,11 +59,13 @@ def checkGuess(theAnswer, theGuess): # gets two values
     for index, value in enumerate(theGuess):
         # print(value, theAnswer[0][index])
         if (value.lower() == theAnswer[0][index].lower()):
-            clue += "Y"
+            clue += value.lower()
+        # elif (value.lower() in theAnswer):
+        #     clue += "N"
         else:
             clue += "-"
     print(clue)
-    return clue == "YYYYY"
+    return clue == (theAnswer)
 
 
 game()
