@@ -30,21 +30,38 @@ def get_random_word():
     return random.choice(words)
    
 
-def checkGuess(theAnswer, theGuess):
+# def checkGuess(theAnswer, theGuess):
+#     """
+#     To check each letter in the user's guess against
+#     the letters in the chosen random answer.
+#     """
+#     position = 0
+#     clue = ""
+#     for letter in theGuess:
+#         if letter == theAnswer[position]:
+#             clue += "Y"
+#         elif letter in theAnswer:
+#             clue += "N"
+#         else:
+#             clue += "-"
+#         position += 1
+#     print(clue)
+#     return clue == "YYYYY"
+
+
+def checkGuess(theAnswer, theGuess): # gets two values
     """
     To check each letter in the user's guess against
     the letters in the chosen random answer.
     """
-    position = 0
     clue = ""
-    for letter in theGuess:
-        if letter == theAnswer[position]:
+
+    for index, value in enumerate(theGuess):
+        # print(value, theAnswer[0][index])
+        if (value.lower() == theAnswer[0][index].lower()):
             clue += "Y"
-        elif letter in theAnswer:
-            clue += "N"
         else:
             clue += "-"
-        position += 1
     print(clue)
     return clue == "YYYYY"
 
@@ -53,6 +70,7 @@ game()
 answer = get_random_word()
 print(answer)
 
+
 attempt = 0
 guessed_correctly = False
 
@@ -60,7 +78,6 @@ while attempt < 6 and not guessed_correctly:
     guess = input().lower()
     print(f"You guessed {guess}")
     attempt += 1
-
     guessed_correctly = checkGuess(answer, guess)
 
 
