@@ -20,6 +20,7 @@ def game():
     print("Welcome to the Harry Potter Wordle Game!\n")
     print("You have 6 attempts. Start typing a five letter word related to Harry Potter, then click Enter.\n")
 
+
 def get_random_word():
     """
     Get random word from words worksheet.
@@ -29,18 +30,24 @@ def get_random_word():
     return random.choice(words)
    
 
-def check_guess(answer, guess):
+def checkGuess(theAnswer, theGuess):
+    """
+    To check each letter in the user's guess against
+    the letters in the chosen random answer.
+    """
     position = 0
-    for letter in guess:
-        if letter == answer[position]:
-            print(colored(guess[letter]), 'green')
-        elif letter in answer:
-            print(colored(guess[letter]), 'yellow')
+    clue = ""
+    for letter in theGuess:
+        if letter == theAnswer[position]:
+            clue += "Y"
+        elif letter in theAnswer:
+            clue += "N"
         else:
-            print(guess[letter])
+            clue += "-"
         position += 1
-    print(guess)
-    
+    print(clue)
+    return clue == "YYYYY"
+
 
 game()
 answer = get_random_word()
@@ -54,28 +61,10 @@ while attempt < 6 and not guessed_correctly:
     print(f"You guessed {guess}")
     attempt += 1
 
-    guessed_correctly = check_guess(answer, guess)
+    guessed_correctly = checkGuess(answer, guess)
+
 
 if guessed_correctly:
     print(f"Congrats! You got the wordle in {attempt} guesses!")
 else:
     print(f"You have used up all your guesses...the correct word is {answer}")
-
-
-# for attempt in range(7):
-#     guess = input().lower()
-
-#     for i in range(4):
-#         if guess[i] == answer[i]:
-#             print(colored(guess[i], 'green'), end="")
-#         # elif guess[i] in word:
-#         #     print(colored(guess[i], 'yellow'), end="")
-#         # else:
-#         #     print(guess[i], end="")
-
-#     if guess == computer:
-#         print(f"Congrats! You got the wordle in {attempt}")
-#         break
-
-
-# for i in range(min(len(guess), 4)):
