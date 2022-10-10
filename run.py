@@ -1,7 +1,7 @@
 import gspread
 from google.oauth2.service_account import Credentials
 import random
-import sys
+import termcolor
 from termcolor import colored
 
 SCOPE = [
@@ -17,8 +17,8 @@ SHEET = GSPREAD_CLIENT.open('harry_potter_wordle')
 
 
 def game():
-    print("Welcome to the Harry Potter Wordle Game!\n")
-    print("You have 6 attempts. Start typing a five letter word related to Harry Potter, then click Enter.\n")
+    termcolor.cprint("Welcome to the Harry Potter Wordle Game!\n", 'magenta')
+    termcolor.cprint("You have 6 attempts. Start typing a five letter word related to Harry Potter, then click Enter.\n", 'magenta')
 
 
 def get_random_word():
@@ -29,6 +29,45 @@ def get_random_word():
     words = get_words.get_all_values()
     return random.choice(words)
    
+
+def checkGuess(theAnswer, theGuess): # gets two values
+    """
+    To check each letter in the user's guess against
+    the letters in the chosen random answer.
+    """
+    clue = ""
+
+    for index, value in enumerate(theGuess):
+        if (value.lower() == theAnswer[0][index].lower()):
+            clue += colored(value.lower(), 'green')
+        elif (value.lower() in theAnswer[0].lower()):
+            clue += colored(value.lower(), 'red')
+        else:
+            clue += "-"
+    print(clue)
+    return clue == answer
+
+
+game()
+answer = get_random_word()
+print(answer)
+
+
+attempt = 0
+guessed_correctly = False
+
+while attempt < 6 and not guessed_correctly:
+    guess = input().lower()
+    print(f"You guessed {colored(guess, 'cyan')}")
+    attempt += 1
+    guessed_correctly = checkGuess(answer, guess)
+
+
+if guessed_correctly:
+    print(f"Congrats! You got the wordle in {attempt} guesses!")
+else:
+    print(f"You have used up all your guesses...the correct word is {answer}")
+
 
 # def checkGuess(theAnswer, theGuess):
 #     """
@@ -47,43 +86,3 @@ def get_random_word():
 #         position += 1
 #     print(clue)
 #     return clue == "YYYYY"
-
-
-def checkGuess(theAnswer, theGuess): # gets two values
-    """
-    To check each letter in the user's guess against
-    the letters in the chosen random answer.
-    """
-    clue = ""
-
-    for index, value in enumerate(theGuess):
-        # print(value, theAnswer[0][index])
-        if (value.lower() == theAnswer[0][index].lower()):
-            clue += value.lower()
-        # elif (value.lower() in theAnswer):
-        #     clue += "N"
-        else:
-            clue += "-"
-    print(clue)
-    return clue == (theAnswer)
-
-
-game()
-answer = get_random_word()
-print(answer)
-
-
-attempt = 0
-guessed_correctly = False
-
-while attempt < 6 and not guessed_correctly:
-    guess = input().lower()
-    print(f"You guessed {guess}")
-    attempt += 1
-    guessed_correctly = checkGuess(answer, guess)
-
-
-if guessed_correctly:
-    print(f"Congrats! You got the wordle in {attempt} guesses!")
-else:
-    print(f"You have used up all your guesses...the correct word is {answer}")
