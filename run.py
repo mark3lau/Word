@@ -16,39 +16,46 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('harry_potter_wordle')
 
 
-def game():
-    termcolor.cprint("Welcome to the Harry Potter Wordle Game!\n", 'magenta')
-    termcolor.cprint("You have 6 attempts. Start typing a five letter word related to Harry Potter, then click Enter.\n", 'magenta')
+def startGame():
+    termcolor.cprint("Welcome to the Harry Potter Wordle Game!\n", 'cyan')
+    termcolor.cprint("You have 6 attempts. If the letter shows up green, it's correct and in the right position. If it's red, the letter is in the word but not in the right position. If it shows up as a dash, the letter is not in the word.\n", 'cyan')
+    termcolor.cprint("Start typing a five letter word related to Harry Potter, then click Enter.\n", 'cyan')
 
 
-def get_random_word():
-    """
-    Get random word from words worksheet.
-    """
-    get_words = SHEET.worksheet("words")
-    words = get_words.get_all_values()
-    return random.choice(words)
-   
+playAgain = ""
+while playAgain != "q":
+    def get_random_word():
+        """
+        Get random word from words worksheet.
+        """
+        get_words = SHEET.worksheet("words")
+        words = get_words.get_all_values()
+        return random.choice(words)
+    
 
-def checkGuess(theAnswer, theGuess): # gets two values
-    """
-    To check each letter in the user's guess against
-    the letters in the chosen random answer.
-    """
-    clue = ""
+    def checkGuess(theAnswer, theGuess): # gets two values
+        """
+        To check each letter in the user's guess against
+        the letters in the chosen random answer.
+        """
+        clue = ""
 
-    for index, value in enumerate(theGuess):
-        if (value.lower() == theAnswer[0][index].lower()):
-            clue += colored(value.lower(), 'green')
-        elif (value.lower() in theAnswer[0].lower()):
-            clue += colored(value.lower(), 'red')
-        else:
-            clue += "-"
-    print(clue)
-    return clue == answer
+        for index, value in enumerate(theGuess):
+            if (value.lower() == theAnswer[0][index].lower()):
+                clue += colored(value.lower(), 'green')
+            elif (value.lower() in theAnswer[0].lower()):
+                clue += colored(value.lower(), 'red')
+            else:
+                clue += "-"
+        print(clue)
+        return clue == colored(value.lower(), 'green')
 
 
-game()
+def continueGame():
+    termcolor.cprint("You have 6 attempts. Start typing a five letter word related to Harry Potter, then click Enter.\n", 'cyan')
+
+
+startGame()
 answer = get_random_word()
 print(answer)
 
@@ -56,7 +63,7 @@ print(answer)
 attempt = 0
 guessed_correctly = False
 
-while attempt < 6 and not guessed_correctly:
+while attempt <= 6 and not guessed_correctly:
     guess = input().lower()
     print(f"You guessed {colored(guess, 'cyan')}")
     attempt += 1
@@ -68,21 +75,7 @@ if guessed_correctly:
 else:
     print(f"You have used up all your guesses...the correct word is {answer}")
 
+playAgain = input("Want to play again? Type q to exit.")
 
-# def checkGuess(theAnswer, theGuess):
-#     """
-#     To check each letter in the user's guess against
-#     the letters in the chosen random answer.
-#     """
-#     position = 0
-#     clue = ""
-#     for letter in theGuess:
-#         if letter == theAnswer[position]:
-#             clue += "Y"
-#         elif letter in theAnswer:
-#             clue += "N"
-#         else:
-#             clue += "-"
-#         position += 1
-#     print(clue)
-#     return clue == "YYYYY"
+continueGame()
+answer = get_random_word()
