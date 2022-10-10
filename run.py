@@ -22,8 +22,13 @@ def startGame():
     termcolor.cprint("Start typing a five letter word related to Harry Potter, then click Enter.\n", 'cyan')
 
 
+startGame()
+answer = get_random_word()
+print(answer)
 playAgain = ""
-while playAgain != "q":
+
+
+while playAgain != "mischief managed":
     def get_random_word():
         """
         Get random word from words worksheet.
@@ -33,7 +38,7 @@ while playAgain != "q":
         return random.choice(words)
     
 
-    def checkGuess(theAnswer, theGuess): # gets two values
+    def checkGuess(theAnswer, theGuess): 
         """
         To check each letter in the user's guess against
         the letters in the chosen random answer.
@@ -51,31 +56,22 @@ while playAgain != "q":
         return clue == colored(value.lower(), 'green')
 
 
-def continueGame():
-    termcolor.cprint("You have 6 attempts. Start typing a five letter word related to Harry Potter, then click Enter.\n", 'cyan')
-
-
-startGame()
-answer = get_random_word()
-print(answer)
-
-
 attempt = 0
 guessed_correctly = False
 
 while attempt <= 6 and not guessed_correctly:
     guess = input().lower()
-    print(f"You guessed {colored(guess, 'cyan')}")
-    attempt += 1
-    guessed_correctly = checkGuess(answer, guess)
-
+    if guess == 5:
+        print(f"You guessed {colored(guess, 'cyan')}")
+        attempt += 1
+        guessed_correctly = checkGuess(answer, guess)
+    else:
+        print("You need to type a 5 letter word, try again")
+    
 
 if guessed_correctly:
     print(f"Congrats! You got the wordle in {attempt} guesses!")
 else:
     print(f"You have used up all your guesses...the correct word is {answer}")
 
-playAgain = input("Want to play again? Type q to exit.")
-
-continueGame()
-answer = get_random_word()
+playAgain = input("Want to play again? Type mischief managed to exit.")
