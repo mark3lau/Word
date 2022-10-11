@@ -75,7 +75,7 @@ def play_game():
     guessed_correctly = False
 
     while attempt <= 6 and not guessed_correctly:
-        guess = input('Enter your guess here: ').lower()
+        guess = input('Enter your guess here: \n').lower()
         if len(guess) != len(answer):
             print('You need to type a 5 letter word, try again')
             continue
@@ -88,7 +88,7 @@ def play_game():
     else:
         print(f'You have used up all your guesses...the correct word is {answer}')
 
-    play_again = input("Press Enter to play again! Or type 'mischief managed' to exit...").lower()
+    play_again = input("Press Enter to play again! Or type 'mischief managed' to exit...\n").lower()
 
     if play_again != 'mischief managed':
         play_game()
