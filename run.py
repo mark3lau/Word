@@ -23,7 +23,8 @@ def welcome():
     """
     termcolor.cprint("Welcome to the Harry Potter Wordle Game!\n", 'cyan')
     termcolor.cprint("You have 6 attempts. If the letter shows up green, it's correct and in the right position.", 'cyan') 
-    termcolor.cprint("If it's red, the letter is in the word but not in the right position. If it shows up as a dash, the letter is not in the word.\n", 'cyan')
+    termcolor.cprint("If it's red, the letter is in the word but not in the right position.", 'cyan')
+    termcolor.cprint("If it shows up as a dash, the letter is not in the word.\n", 'cyan')
     termcolor.cprint("Think of a five letter word related to Harry Potter...\n", 'cyan')
 
 
