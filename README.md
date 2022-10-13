@@ -74,75 +74,65 @@ To show the user the letters that they have guessed already as they play the gam
 ## <u>5. Color scheme</u>
 I used the termcolor feature to add some basic color schemes to the game which helps add another dimension rather than the game being in black and white. I chose a cyan blue for the welcome message and instructions, and also to display the word that the user guessed.
 I used a green color to display the letter that was guessed correctly in the correct position. Finally, I chose a red color to display a letter that is in the correct answer but not in the right position. I didn't want to add much more coloring to the game so as to keep it simple and easy to follow for the user.
+
 <hr>
 
 ## <u>6. Lucidchart</u>
-I used lucidchart to help me draw up the 
+I used lucidchart to help me draw up the structure of my game, from the beginning of the game with the welcome message and instructions through the various options the user could take, from displaying the various clues through to user guessing the word correctly or not, and how the application would tackle each possibility. 
 
 <hr>
 
 ## <u>7. Technology</u>
-<b>HTML and CSS</b> were used to give the site it's core text and styling structures.
+<b>Python</b> was used to run this interactive command-line application.
 
-<b>JavaScript</b> was used to run the interactive parts of the game, including but not limited to the score updates, generating the random computer choice and the logic determining the win, lose and draw outcomes.
-
-Two fonts were chosen from <b>Google Fonts</b> for the text styles of the site.
-
-The icons for the player choices were taken from <b>Font Awesome</b>.
-
-The audio files for the win and lose noises were taken from <b>Mixkit</b>.
+The <b>Termcolor</b> module was used to add basic color styles to text in the terminal.
 
 <b>Gitpod</b> was the application chosen to develop the site.
 
-The site has been deployed on <b>Github pages</b>. 
+The site has been deployed on <b>Heroku</b>. 
+
 <hr>
 
 ## <u>8. Testing</u>
 
    ### **Code validation**
-   HTML and CSS. Small errors were found and have been corrected since when the codes were put through the [W3C validator](https://validator.w3.org/) for HTML and [Jigsaw validator](https://jigsaw.w3.org/css-validator/) for CSS.
-
-   The JavaScript code was put through the [JShint validator](https://jshint.com/) with minor errors such as unnecessary semicolons that have now been rectified.
+   The code has been put through the [Python checker](https://www.pythonchecker.com//) and returned minor errors. Most errors contained lines of code that were longer than 80 characters and unnecessary white spaces, which have all have now been rectified.
 
    ### **Test cases**
 
-   #### **Desktop**
-
-   #### <i>Landing page</i>
-   As the user is on the landing page, the user is shown the game title in the header, and two images underneath with the rules of the game. There is a message that informs the user to enter a username in a text box, where the pointer is focused on the text box already as the landing page loads. The user has to enter text into the text box before the options for the two difficulty levels are displayed on the page, Easy Spock and Hard Devil. 
+   #### <i>Welcome message and instructions</i>
+   The user is presented with a welcome message and instructions to the game. An input box message should show the user where to type their first guess.
 
    ![landing-page-levels](docs/screenshots/landing-page_level-selected.png "Landing page with level selected")
 
-   #### <i>Game page</i>
-   When the user gets to the game page, the username that was typed into the text box on the landing page will appear on the left side of the screen. In between the username and computer name, there is a scoreboard that indicates the scores for the player and the computer. Underneath the scoreboard is a "Ready?" message, the choices the user needs to make which are represented as icons, and another message to promt the user to make the first move to start the game. 
-   When the user hovers over the icons, the icons will "pop" out and is highlighted with a blue border. When the user clicks on a choice, the game starts immediately and the score will automatically update and the results message will appear to show the user whether they have won that round or not. If the user has won a round, the user's score in the scoreboard will light up green. If the user has lost the round, the computer's score in the scoreboard will light up red. If it's a draw, it will only be indicated through the results message.
-   If the user clicks on the game title in the header, this will refresh the page and take the user to the landing page to restart the game.
+   #### <i>Clues</i>
+   As the user types their 5 letter word, a display message will show the user what word they just typed, highlighted in cyan blue, followed on the next line by the clue. Green letters show letters that are in the correct position, red letters show letters that are in the answer but not in the correct position, and dashes show letters that are not in the answer.
+   The user is then prompted to enter their next guess.
 
    ![hard-game-page](docs/screenshots/hard-game-page_win.png "Win result on hard game")
    ![hard-game-page](docs/screenshots/hard-game-page_lose.png "Lose result on hard game")
    ![hard-game-page](docs/screenshots/hard-game-page_draw.png "Draw result on hard game")
    ![hard-game-page](docs/screenshots/hard-game-page_icon-selected.png "Icon selected on hard game")
 
-   #### **Mobile** 
-   For a mobile width of 390px, the rules images are stacked on top of each other. The heading, images and text are all made smaller to fit the screen size better. In the game page, the icons, messages and names are all made smaller. The transformation of the icons when the user hovers over an icon has also been made smaller to minimise the movement of the icons from one row to another.
+   #### <i>Incorrect input</i>
+   If the user does not input a 5 letter word, a display message will tell the user that they have not typed a 5 letter word and to try again. This attempt will not count towards the total number of attempts.
 
-   ![landing-page-390px](docs/screenshots/mobile_landing-page.png "Landing page 390px")
-   ![landing-page-390px](docs/screenshots/mobile_landing-page-levels.png "Landing page with levels 390px")
-   ![easy-game-page-390px](docs/screenshots/mobile_game-page-easy.png "Easy game page 390px")
-   ![hard-game-page-390px](docs/screenshots/mobile_game-page-hard.png "Hard game page 390px")
+   #### <i>Correct guess</i>
+   If the user guesses correctly, a display message will show the word they guessed, highlighted in cyan, followed by the correct answer highlighted in green as the clue. The following line will show a congratulations message and the number of guesses it took the user to guess the correct answer. The user will be given the option of playing again by pressing Enter, or typing 'mischief managed' to exit the game. 
+   If they press Enter, the game will restart back to the beginning displaying the welcome message and instructions.
+   If they decide to exit the game after typing 'mischief managed', a thank you for playing message will be displayed to the user.
+
+   #### <i>Incorrect guess and run out of attempts</i>
+   If the user has guessed incorrectly and run out of attempts, a message will display telling the user that they have used up all their guesses, and what the correct answer was. The user will be given the option of playing again by pressing Enter, or typing 'mischief managed' to exit the game.
 
    ### **Fixed bugs**
-   * A loadlevels function and a keydown event listener was added to JavaScript in order to prompt the user to enter a username in the text box before progressing to the game page. Before this, the user was able to click on a difficulty level straight away before typing anything into the text box.
+   * The answer variable was originally generating a random word from the worksheet but displaying it as an array, which was fixed by making sure it was accessing the array from the first element, this was added to the get_random_word function after the answer variable.
    
-   * When I was incorporating a second option for the difficulty level, I started by trying to run two functions to generate the computer choices for the Easy and Hard games. However, in the Easy game the computer was still generating the Hard choices of Love and Devil which should not have been part of the Easy game. To fix the bug, I created only one function to generate the computer choice, and created arrays for easy and hard choices in addition to an empty array option for controls. This helped to simplify the code and allowed the computer to generate choices for the Easy and Hard levels separately.
-
-   * I had not included the playerChoice and computerChoice arguments within the win(), draw() and lose() functions that were nested within the game function. This resulted in both the player and computer scores updating at the same time whether the player won or lost. This was easily rectified by including the arguments within these functions.
+   * I had to make sure the user inputs were converted into lower cases, and also the answers being generated from the worksheet were also converted to lower cases so that the values matched.
 
    ### **Unfixed bugs**
    There are no known unfixed bugs.
    
-   ### **Supported screens and browsers**
-   The site is fully supported for large, medium and small screen widths from widths larger than 1480px to small screens of 390px. The images and texts have all been adjusted so that the user experience is unaffected for different screen sizes.
 <hr>
 
 ## <u>9. Deployment</u>
@@ -150,12 +140,12 @@ The site has been deployed on <b>Github pages</b>.
    ### **Gitpod**
    The site was developed using Gitpod. In order to access the Gitpod workspace, follow the steps below:
    
-   In Github repository, select the mark3lau/Spock_Game.
+   In Github repository, select the mark3lau/harry_potter_wordle.
    Click on the green Gitpod button near the top of the repository page, this will open the Gitpod workspace.
-   Inside the workspace, you can generate the web page of the Spock Game by typing into the terminal "python3 -m http.server".
+   Inside the terminal, you can run the Harry Potter Wordle game by typing "python3 run.py".
 
-   ### **Github**
-   The site was deployed to Github pages. The steps to deploy are as follows:
+   ### **Heroku**
+   The site was deployed to Heroku. The steps to deploy are as follows:
 
    In Github repository, navigate to the Settings tab.
    In the section 'Source', select the Main option and click Save.
@@ -168,12 +158,5 @@ The site has been deployed on <b>Github pages</b>.
 
 ## <u>10. Credits</u>
 
-   ### **Content**
-   The icons for the player choices in the game page were taken from [Font Awesome](https://fontawesome.com/).
-   The fonts for the site were taken from [Google Fonts](https://fonts.google.com/).
-   The code for the starry night effect background for the site was taken from Marsei who posted on 26th November 2015 on [Stack Overflow](https://stackoverflow.com/questions/33948011/creating-a-starry-background-in-css).
-    
-   ### **Media**
-   The rules image for the Easy Spock level with the five options, Rock, Paper, Scissors, Lizard and Spock, was taken from the [Juice Bubble](https://juicebubble.co.za/product/rock-paper-scissors-lizard-spock/) website. 
-   The rules image for the Hard Devil level with seven options including the Love and Devil options, was taken from a blog post by Maddish on [Zebra Tiger Fish](http://zebratigerfish.blogspot.com/2018/02/a-seven-pointed-expansion-rock-paper.html).
-   The audio files for when the user wins and loses a game were taken from [Mixkit](https://mixkit.co/free-stock-video/audio/).
+   ### **Harry Potter words**
+   The 5 letter words related to Harry Potter were taken from [Nerds Chalk](https://nerdschalk.com/5-letter-harry-potter-words-list-find-a-hint-for-harry-potter-wordle-easily/).
