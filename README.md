@@ -1,108 +1,83 @@
-<<<<<<< HEAD
 # **HARRY POTTER WORDLE**
-=======
-# **Harry Potter Wordle**
->>>>>>> 05fea4cc70706252b48b99cbc80eae6272fc845b
 
 ## <u>1. Introduction</u>
-The objective of this project was to create an interactive front-end site that would respond to a user's actions using Javascript, HTML and CSS. Game of Spock is an extension of the popular Rock, Paper, Scissors game that the user can play against the computer. The difference with the Game of Spock is that it has four extra options: Lizard, Spock, Love and Devil. Lizard and Spock are game options that were made popular by the TV programme 'The Big Bang Theory' and form the 'Easy Spock' level of the game with five options to choose from. Love and Devil options are for the 'Hard Devil' level to the game where there are seven options to choose from. The site is targeted towards players who want to play an extended version of the traditional Rock, Paper, Scissors game and play online against the Computer. 
+This project was about building a command-line application that allows users to manage a common dataset about a particular domain.
+I decided to re-create the popular Wordle game, combined with the world famous Harry Potter books as a theme to the game. This game involves users trying to guess a five letter word, and in this case words related to Harry Potter, within a set number of attempts. The user will get clues as to whether the letters they have guessed are in the right position, or in the word but not the right position, or not in the word at all.
+This command-line application game is designed for people who are keen Harry Potter fans and who also enjoy playing the famous Wordle game.
 <hr>
 
 ## <u>2. User Stories</u>
-As a user who wants to learn and play an extension of the Rock, Paper, Scissors game, I want to navigate the game page with minimum effort and easily understand how to play the game from the instructions. I want to be able to have fun playing against the computer and try and beat it with a higher score.
+As a user I want to easily understand the rules and play the five letter Harry Potter Wordle game without a high degree of difficulty in using the game. I want to be able to able to guess words related to Harry Potter and be given clues as to which letters I have entered are correct. I want to be able to check my answer at the end if I haven't got the correct word, and to be able to play again straight away or exit the game when I have finished.
 
 ### **End user goal:** 
-To understand the rules of the Game of Spock and to try and beat the Computer in the Game of Spock with a higher score.
+I want to understand the rules of Harry Potter Wordle and to be able to get clues on the letters that I have guessed that will help me guess the correct word within the set number of attempts. 
 
 ### **Acceptance criteria:**
-The landing page to include instructions to the rules of the Game of Spock.
-An input box for the user to choose a username before they progress to the game itself.
-The user can choose between different levels of difficulty.
-A scoreboard that keeps track of the score.
-A message that indicates whether the user has won, lost or drawn each round of the game.
+The welcome message will display instructions to the rules of the Harry Potter Wordle game.
+As the user types 5 letter words, the clues will correctly show the user which letter is in the correct position, which letters are in the word but not in the correct position, and letters that are not in the word at all. Colors will help indicate which is which.
+If the user does not guess correctly within the set number of attempts, it will display a message to the user with the answer and the options to play again or exit the game.
+If the user guesses correctly, it will display a congratulations message to the user and the option to play again or exit the game.
 
 ### **Measurement of success:**
-A landing page with clear instructions explaining to the user before they get onto the game page what the rules of the game are. 
-A simple input section for the user to input their username on the landing page. The chosen username to be instantly implemented onto the game page and for the user to be taken there directly having clicked the submit button.
-A user can choose between difficulty levels easily that will add to the enjoyment of the game by the user. 
-When the user chooses an option, a result message will display immediately to inform the user as to whether the result is a win, lose or draw, and the scoreboard will update immediately depending on the result. There will be an acknowledgement of the choice chosen and the score updating using a visual display of colour and/or audio.
-The game will be fully responsive from large screen widths to small mobile screen widths. 
+A clear set of instructions at the beginning of the game displayed to the user.
+If the user types a word that is not 5 letters in length, a message will display to the user to type a 5 letter word.
+Clearly color coded clues that display which letters are correct and in the right or wrong positions. 
+If the user has guessed the word correctly within the set number of attempts, it will display a message to the user to show how many guesses it took the user to guess the correct answer.
+If the user has not guessed the correct word, it will display the correct answer to the user and the options for them to either continue playing the game or exit.
+Once the user has either guessed correctly or used up all their attempts, the ability for the user to easily continue playing the game or exit.
 
 <hr>
 
 ## <u>3. Features</u>
 
-### **Header**
-There is a fixed header featured on both the landing page and game page with the game title displayed. The header is also a shortcut to refresh the page and take the user back to the landing page to restart the game.
-
-### <i>**Landing page**</i>
+### **Welcome message and instructions**
+Firstly a colored welcome message to welcome the user to the game will be displayed. A short set of instructions will follow explaining the number of attempts the user has, which color indicates whether the word is in the correct position or if it's in the word but not in the correct position.
+A short message will prompt the user to guess a 5 letter word related to Harry Potter, which is followed by an input message for the user to input their first guess.
 
 ![landing-page](docs/screenshots/landing-page.png "Landing page")
 
-### **Rules images**
-There is one image that shows the rules for the Easy Spock level of the game using the five choices of Rock, Paper, Scissors, Spock and Lizard. The second image to the right shows the rules of the game for the Hard Devil level of the game, with the Love and Devil choices added to the five choices of the Easy Spock level.
+### **Clues**
+When the user types a 5 letter word, a message will display showing the user which word they just guessed, highlighted in blue. Below will be the clue, green letters representing the correct letter in the correct position, red letters representing correct letters in the word but in the wrong positions, and dashes representing letters that aren't in the word at all.
+The user will be prompted to enter their next guess below.
 
-### **Username input box**
-There is a clearly indicated input box underneath the rules images for the user to enter their username for the game.
+### **Incorrect input from the user**
+If the user does not enter a 5 letter word, they will be told to try again and to guess a 5 letter word. This will not count as one of the user's attempts.
 
-### **Level options**
-There are two level options, Easy Spock and Hard Devil, to the game which are not displayed until the user has entered a username. The user must click one of the options to proceed to the game page. 
+### **Guessed correctly**
+If the user guesses the correct word, they will be shown the word they guessed, the clue will include the correct answer lit up in green, and a congratulations message to the user showing how many guesses it took for the user to guess the correct answer. 
+The user will then be given the option to either play again or exit the game.
 
 ![landing-page-levels](docs/screenshots/landing-page-levels.png "Landing page with levels")
 
-### <i>**Game page**</i>
-
-### **Username and computer name**
-The user's chosen username will be displayed on the left side of the page, and the Computer's name is displayed on the right.
-
-![easy-game-page](docs/screenshots/easy-game-page_ready.png "Easy game page")
-![hard-game-page](docs/screenshots/hard-game-page_ready.png "Hard game page")
-
-### **Scoreboard**
-The scoreboard is positioned in the middle of the screen, with the scores updating as the user plays the game. The player's score in the scoreboard will light up in a green colour when the user wins a round, and the computer's score will light up in red when the user loses. For a drawn game, there are no colours displayed.
-
-### **Results message**
-The user will be greeted with the message "Ready?" when they first land on the game page. This will then display three different types of messages as the user plays the game, one each for winning, losing or drawing a round against the computer.
-
-### **User choices for game**
-For the Easy Spock game, the user will have five choices to choose from between Rock, Paper, Scissors, Lizard and Spock. For the Hard Devil level, there will be the addition of the Love and Devil choices. These choices will be represented by icons towards the bottom of the screen. There is also a "Make your move" message below the choices to indicate to the user that they have to click on a choice to start the game.
-
-![easy-game-page-results](docs/screenshots/easy-game-page_win.png "Win result on easy game")
-![easy-game-page-results](docs/screenshots/easy-game-page_lose.png "Lose result on easy game")
-![easy-game-page-results](docs/screenshots/easy-game-page_draw.png "Draw result on easy game")
-
-### **Restart the game**
-The user can click on the game title Game of Spock in the header which will refresh the page and take the user back to the landing page to restart the game.
+### **User runs out of attempts**
+If the user runs out of attempts, a message will display telling the user that they have run out of guesses and also what the correct answer was. 
+The user will then be given the option to either play again or exit the game.
 
 <hr>
 
 ## <u>4. Future features</u>
 
-### **Sets of games**
-A feature that allows the user to play to a pre-determined high number, for example the first to reach 21 points. Then a separate scoreboard to keep track of the amount of sets the player has won or lost against the computer. This will add an extra layer of competitiveness to the game and overall enjoyment to the user. 
+### **Display number of guesses as the user plays the game**
+A feature that allows the user to know how many guesses they have remaining before they run out of guesses.
 
-### **Two player game**
-Include an option for two users to play against each other instead of the game being a one player game against the computer. This additional feature would look to split the screen and for the controls for user choices to be input through the keyboard.
+### **Username**
+Allow the user to input a username at the beginning of the game so the display messages can refer to the user by name and speak to them directly.
 
-### **Timer**
-To add a timer element to the game. This could be achieved by either adding a countdown timer before the player makes a choice each time, for example a 3, 2, 1 countdown. Or a countdown timer for the user to try and beat the computer before the timer reaches zero. This feature could work nicely alongside the "Sets of games" feature mentioned earlier.
+### **Final score**
+To add a scoring element so that when the user decides to exit the game, a final score will be displayed to show how many words they guessed correctly.
+
+### **Display guessed letters not in word**
+To show the user the letters that they have guessed already as they play the game, and which are not in the correct answer so the user knows which letters not to guess again.
+
 <hr>
 
-## <u>5. Typography and color scheme</u>
-I chose a dark background and a light pink colour scheme. I wanted to associate the colour scheme to Star Trek and the acknowledgement of Spock as being a main part of the game. The dark background has an added "galaxy/space" effect with tiny specks of white light to represent distant galaxies and the night sky. The light pink is a nice contrast to the dark background and makes the text legible. There is also a light blue colour that's used that gives an extra layer of aesthetics to the site and again is very legible against the dark background. The main font is "press start 2p" which is reminiscent of the 1990s arcade games, this is only used for the game title and text that are large enough so that it's easy to read. For scoreboard text and messages this is in "space grotesk" font which is easier to read for the user and keeps with the "space" theme.
+## <u>5. Color scheme</u>
+I used the termcolor feature to add some basic color schemes to the game which helps add another dimension rather than the game being in black and white. I chose a cyan blue for the welcome message and instructions, and also to display the word that the user guessed.
+I used a green color to display the letter that was guessed correctly in the correct position. Finally, I chose a red color to display a letter that is in the correct answer but not in the right position. I didn't want to add much more coloring to the game so as to keep it simple and easy to follow for the user.
 <hr>
 
-## <u>6. Wireframes</u>
-Wireframes were created using Balsamiq to outline what the site would look like, from the layout of the Landing page to the Game page and updating scoreboard and results messages. I've also outlined the layout for desktop and mobile screen widths.
-
-#### **Large and medium screen widths**
-
-![landing-page](docs/wireframes/wireframes_landing-page.png "Landing page")
-![game-page](docs/wireframes/wireframes_game-page.png "Game page")
-
-#### **Small screen widths (mobile)**
-
-![mobile-page](docs/wireframes/wireframes_mobile.png "Mobile page")
+## <u>6. Lucidchart</u>
+I used lucidchart to help me draw up the 
 
 <hr>
 

@@ -22,19 +22,12 @@ def welcome():
     instructions for the user to play the game.
     """
     termcolor.cprint("Welcome to the Harry Potter Wordle Game!\n", 'cyan')
-<<<<<<< HEAD
     termcolor.cprint("You have 6 attempts. If the letter shows up green,", 'cyan')
     termcolor.cprint("it's correct and in the right position.", 'cyan')
     termcolor.cprint("If it's red, the letter is in the word,", 'cyan')
     termcolor.cprint("but not in the right position.", 'cyan')
     termcolor.cprint("If there's a dash, the letter is not in the word.\n", 'cyan')
     termcolor.cprint("Think of a five letter Harry Potter related word...\n", 'cyan')
-=======
-    termcolor.cprint("You have 6 attempts. If the letter shows up green, it's correct and in the right position.", 'cyan')
-    termcolor.cprint("If it's red, the letter is in the word but not in the right position.", 'cyan')
-    termcolor.cprint("If it shows up as a dash, the letter is not in the word.\n", 'cyan')
-    termcolor.cprint("Think of a five letter word related to Harry Potter...\n", 'cyan')
->>>>>>> 05fea4cc70706252b48b99cbc80eae6272fc845b
 
 
 def get_random_word():
@@ -78,7 +71,7 @@ def play_game():
     """
     welcome()
     answer = get_random_word()[0]
-    # print(answer)
+    print(answer)
 
     attempt = 0
     guessed_correctly = False
