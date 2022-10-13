@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # **HARRY POTTER WORDLE**
+=======
+# **Harry Potter Wordle**
+>>>>>>> 05fea4cc70706252b48b99cbc80eae6272fc845b
 
 ## <u>1. Introduction</u>
 The objective of this project was to create an interactive front-end site that would respond to a user's actions using Javascript, HTML and CSS. Game of Spock is an extension of the popular Rock, Paper, Scissors game that the user can play against the computer. The difference with the Game of Spock is that it has four extra options: Lizard, Spock, Love and Devil. Lizard and Spock are game options that were made popular by the TV programme 'The Big Bang Theory' and form the 'Easy Spock' level of the game with five options to choose from. Love and Devil options are for the 'Hard Devil' level to the game where there are seven options to choose from. The site is targeted towards players who want to play an extended version of the traditional Rock, Paper, Scissors game and play online against the Computer. 
