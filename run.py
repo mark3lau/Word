@@ -1,3 +1,7 @@
+"""
+Module for a Harry Potter Wordle Game
+"""
+
 import random
 import gspread
 from google.oauth2.service_account import Credentials
@@ -22,11 +26,13 @@ def welcome():
     instructions for the user to play the game.
     """
     termcolor.cprint("Welcome to the Harry Potter Wordle Game!\n", 'cyan')
-    termcolor.cprint("You've 6 attempts. If the letter shows up green,", 'cyan')
+    termcolor.cprint("You've 6 attempts.", 'cyan')
+    termcolor.cprint("If the letter shows up green,", 'cyan')
     termcolor.cprint("it's correct and in the right position.", 'cyan')
     termcolor.cprint("If it's red, the letter is in the word,", 'cyan')
     termcolor.cprint("but not in the right position.", 'cyan')
-    termcolor.cprint("If there's a dash, the letter's not in the word.\n", 'cyan')
+    termcolor.cprint("If there's a dash,", 'cyan')
+    termcolor.cprint("the letter's not in the word.\n", 'cyan')
     termcolor.cprint("Think of a five letter Harry Potter word...\n", 'cyan')
 
 
@@ -87,9 +93,12 @@ def play_game():
     if guessed_correctly:
         print(f'Congrats! You got the wordle in {attempt} guesses!')
     else:
-        print(f'You have used up all your guesses...the correct word is {answer}')
+        print('You have used up all your guesses...')
+        print(f'...the correct word is {answer}')
 
-    play_again = input("Press Enter to play again! Or type 'mischief managed' to exit...\n").lower()
+    replay = "Press Enter to play again! Or type 'mischief managed' to exit\n"
+
+    play_again = input(replay).lower()
 
     if play_again != 'mischief managed':
         play_game()

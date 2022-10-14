@@ -7,7 +7,11 @@ This command-line application game is designed for people who are keen Harry Pot
 <hr>
 
 ## <u>2. User Stories</u>
-As a user I want to easily understand the rules and play the five letter Harry Potter Wordle game without a high degree of difficulty in using the game. I want to be able to able to guess words related to Harry Potter and be given clues as to which letters I have entered are correct. I want to be able to check my answer at the end if I haven't got the correct word, and to be able to play again straight away or exit the game when I have finished.
+As a user I want to easily understand the rules and play the five letter Harry Potter Wordle game. 
+
+I want to be able to able to guess words related to Harry Potter and be given clues as to which letters I have entered are correct. 
+
+I want to be able to check my answer at the end if I haven't got the correct word, and to be able to play again straight away or exit the game when I have finished.
 
 * ### **End user goal** 
    I want to understand the rules of Harry Potter Wordle and to be able to get clues on the letters that I have guessed that will help me guess the correct word within the set number of attempts. 
@@ -159,17 +163,17 @@ I used lucidchart to help me draw up the structure of my game, from the beginnin
    ### **Gitpod**
    The site was developed using Gitpod. In order to access the Gitpod workspace, follow the steps below:
    
-   In Github repository, select the mark3lau/harry_potter_wordle.
-   Click on the green Gitpod button near the top of the repository page, this will open the Gitpod workspace.
-   Inside the terminal, you can run the Harry Potter Wordle game by typing "python3 run.py".
+   1. In Github repository, select the mark3lau/harry_potter_wordle.
+   2. Click on the green Gitpod button near the top of the repository page, this will open the Gitpod workspace.
+   3. Inside the terminal, you can run the Harry Potter Wordle game by typing "python3 run.py".
 
    ### **Heroku**
    The site was deployed to Heroku. The steps to deploy are as follows:
 
-   In the Heroku dashboard, click on the harry_potter_wordle app.
-   Click on the 'Deploy' tab near the top of the page. 
-   In the Deploy page, scroll down to the Manual deploy section. Choose the main branch to deploy, and click Deploy Branch. 
-   Once the message 'Your app was successfully deployed' is displayed, click on the View button below. The app should now be running in a new tab.
+   1. In the Heroku dashboard, click on the harry_potter_wordle app.
+   2. Click on the 'Deploy' tab near the top of the page. 
+   3. In the Deploy page, scroll down to the Manual deploy section. Choose the main branch to deploy, and click Deploy Branch. 
+   4. Once the message 'Your app was successfully deployed' is displayed, click on the View button below. The app should now be running in a new tab.
 
 <hr>
 
