@@ -77,6 +77,7 @@ I used the termcolor feature to add some basic color schemes to the game which h
 I used a green color to display the letter that was guessed correctly in the correct position. Finally, I chose a red color to display a letter that is in the correct answer but not in the right position. I didn't want to add much more coloring to the game so as to keep it simple and easy to follow for the user.
 
 ![color_theme_1](screenshots/color_theme_1.png "Cyan blue color theme")
+
 ![color_theme_2](screenshots/color_theme_2.png "Green and red color theme")
 
 <hr>
@@ -126,13 +127,22 @@ I used lucidchart to help me draw up the structure of my game, from the beginnin
       If they decide to exit the game after typing 'mischief managed', a thank you for playing message will be displayed to the user.
 
       ![correct-guess](screenshots/correct_guess.png "Correct guess")
+
       ![play-again](screenshots/play_again.png "Play again")
 
    * #### <u>Incorrect guess and run out of attempts</u>
       If the user has guessed incorrectly and run out of attempts, a message will display telling the user that they have used up all their guesses, and what the correct answer was. The user will be given the option of playing again by pressing Enter, or typing 'mischief managed' to exit the game.
 
       ![max-attempts](screenshots/max_attempts.png "User runs out of attempts")
+
       ![exit-game](screenshots/exit_game.png "Exit game")
+
+   * #### <u>Capitals changed to lower case</u>
+      If the user uses capitals whilst typing their guesses, these will be converted to lower case so they match the values of the answer and a comparison can be made correctly. This also applies if the user wants to exit the game, the words 'mischief managed' are also changed to lower case so the user can properly exit the game even if they have typed in capitals.
+
+      ![lower-case-1](screenshots/capitals_lower_case_1.png "Capitals changed to lower case in user guesses")
+
+      ![lower-case-2](screenshots/capitals_lower_case_2.png "Capitals changed to lower case to exit game")
 
    ### **Fixed bugs**
    * The answer variable was originally generating a random word from the worksheet but displaying it as a list which was fixed by changing it to an array, this was added to the get_random_word function after the answer variable.
