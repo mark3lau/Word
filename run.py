@@ -71,7 +71,7 @@ def play_game():
     """
     welcome()
     answer = get_random_word()[0]
-    print(answer)
+    # print(answer)
 
     attempt = 0
     guessed_correctly = False
