@@ -158,7 +158,8 @@ I used lucidchart to help me draw up the structure of my game, from the beginnin
 
    In the Heroku dashboard, click on the harry_potter_wordle app.
    Click on the 'Deploy' tab near the top of the page. 
-   In the Deploy page, click on Open app near the top right corner.
+   In the Deploy page, scroll down to the Manual deploy section. Choose the main branch to deploy, and click Deploy Branch. 
+   Once the message 'Your app was successfully deployed' is displayed, click on the View button below. The app should now be running in a new tab.
 
 <hr>
 
